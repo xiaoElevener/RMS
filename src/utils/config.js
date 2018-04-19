@@ -1,4 +1,4 @@
-const PREFIX='/api';
+
 export default {
   name: '员工餐费管理系统',
   prefix: 'rms',
@@ -7,9 +7,7 @@ export default {
   openPages: ['/login'],
   api: {
     user:{
-      userLogin: PREFIX+`/user/login`,
-      listUsers: PREFIX+'/users',
-      user: PREFIX+'/user',
+      userList: '/ajax/userList',
   }
 },
 }

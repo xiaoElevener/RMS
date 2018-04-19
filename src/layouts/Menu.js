@@ -14,7 +14,7 @@ export default class Menu extends React.Component{
                 <MenuItem key="user">
                 <NavLink to="user">
                 <Icon type="pie-chart" />
-                <span>用户</span>
+                <span>用户列表</span>
                 </NavLink>
                 </MenuItem>
             </SubMenu>

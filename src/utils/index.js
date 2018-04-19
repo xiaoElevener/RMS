@@ -99,7 +99,7 @@ const arrayToTree = (array, id = 'id', pid = 'pid', children = 'children') => {
   return result
 }
 
-export const utils = {
+export {
   config,
   request,
   color,

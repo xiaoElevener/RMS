@@ -1,19 +1,16 @@
 import React from 'react';
 import {connect} from 'dva';
-import UserTable from './UserTable';
+import UserTable from './components/UserTable';
 
-const User =(props)=>{
-        console.log( 'props:'+JSON.stringify(props));
-        const {list} =props;
-        let items=[];
+const User =()=>{
         return ( 
             <div><UserTable/></div>
         );
     }
 
 function mapStateToPorps(state){
-    const {list} = state.user;
-    return {list};
+    const {data} = state.user;
+    return {data};
 }
 
 export default connect(mapStateToPorps)(User);
