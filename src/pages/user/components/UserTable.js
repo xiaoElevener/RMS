@@ -1,21 +1,52 @@
 import { Table, Input, Popconfirm, Pagination } from 'antd';
 import React from 'react';
 import { connect } from 'dva';
+import UserModal from './UserModal';
 
-function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber }) {
+function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, loading }) {
   const columns = [{
     title: '账号',
     dataIndex: 'loginName',
+    key: 'loginName',
     width: '25%',
   }, {
     title: '姓名',
     dataIndex: 'userName',
+    key: 'userName',
     width: '15%',
   }, {
     title: '手机号',
     dataIndex: 'telephone',
+    key: 'telephone',
     width: '20%',
+  }, {
+    title: '操作',
+    key: 'operation',
+    render: (text, record) => (
+      <span>
+        <UserModal record={record} onOk={editHandler.bind(null, record.id)} type='edit'>
+          <a>编辑</a>
+        </UserModal>
+        <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record.id)}>
+          <a>删除</a>
+        </Popconfirm>
+      </span>
+    )
   }];
+
+  function deleteHandler(id) {
+    dispatch({
+      type: 'user/remove',
+      payload: id
+    })
+  }
+
+  function editHandler(id, values) {
+    dispatch({
+      type: 'user/update',
+      payload: { id, values },
+    });
+  }
 
   const pagination = {
     pageSize,
@@ -23,7 +54,6 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber }) 
     showSizeChanger: true,
     total,
     onChange: function (pageNumber, pageSize) {
-      console.log("pageNumber=" + pageNumber + "   pageSize=" + pageSize);
       dispatch({
         type: 'user/changePage',
         payload: {
@@ -31,28 +61,24 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber }) 
           pageNumber
         }
       });
-
       dispatch({
         type: 'user/fetch'
       });
     },
 
     onShowSizeChange: function (current, size) {
-      console.log("current=" + current + "   size=" + size);
       dispatch({
         type: 'user/changePageSize',
         payload: {
           pageSize: size,
         }
       });
-
       dispatch({
         type: 'user/fetch'
       });
     },
   };
-  debugger;
-  console.log('pagination=' + JSON.stringify(pagination));
+
   return (
     <div>
       <Table
@@ -61,6 +87,7 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber }) 
         columns={columns}
         rowKey='id'
         pagination={pagination}
+        loading={loading}
       />
 
     </div>);
@@ -73,7 +100,7 @@ function mapStateToProps(state) {
     total,
     pageSize,
     pageNumber,
-    loading: state.loading.models.users,
+    loading: state.loading.models.user,
   };
 }
 

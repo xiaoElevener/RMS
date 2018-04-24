@@ -1,20 +1,35 @@
-import {config,request} from '../../../utils/index';
+import { config, request } from '../../../utils/index';
 
-console.log('config='+config+' request=' +request);
-const {api:{user:userApi}} = config;
+const { api: { user: userApi } } = config;
 
 export function queryAll(params) {
-  return request(userApi.userList,{method:'GET',params});
+    return request(userApi.userList, { 
+        method: 'GET', params 
+    });
 }
 
-export function query(id = 1) {
-    return request(userApi.user+'/'+id,{method:'GET'});
+export function query(id) {
+    return request(userApi.user + '/' + id, {
+         method: 'GET' 
+        });
 }
 
-export function create(user){
-    return request(userApi.user,{
-        method:'POST',
-        body:JSON.stringify(user)
+export function create(values) {
+    return request(userApi.user, {
+        method: 'POST',
+        body: values
     }
-);
+    );
+}
+
+export function remove(id) {
+    return request(userApi.user + '/' + id, {
+         method: 'DELETE' 
+        });
+}
+
+export function update(id, values) {
+    return request(userApi.user + '/' + id, {
+         method: 'PUT', body: values 
+        });
 }

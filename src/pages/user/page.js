@@ -1,16 +1,14 @@
 import React from 'react';
-import {connect} from 'dva';
+import { connect } from 'dva';
 import UserTable from './components/UserTable';
+import ListSearch from './components/ListSearch';
 
-const User =()=>{
-        return ( 
-            <div><UserTable/></div>
-        );
-    }
-
-function mapStateToPorps(state){
-    const {data} = state.user;
-    return {data};
+const User = () => {
+    return (
+        <div><ListSearch /><UserTable /></div>
+    );
 }
 
-export default connect(mapStateToPorps)(User);
+
+
+export default User;

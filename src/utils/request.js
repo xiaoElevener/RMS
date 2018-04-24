@@ -41,9 +41,16 @@ function checkStatus(response) {
 }
 
 function checkSuccess(data) {
+  
   if (data.success) {
     return data;
   }
+
+  notification.error({
+    message: `请求错误`,
+    description: data.message,
+  });
+  
   const error = new Error(data.message);
   throw error;
 }
@@ -87,7 +94,7 @@ export default function request(url, options) {
   }
 
   newOptions.headers.Accept = 'application/json';
-  console.log('url:' + url + '   newOptions:' + newOptions);
+  console.log('url:' + url + '   newOptions:' + JSON.stringify(newOptions));
   return fetch(url, newOptions)
     .then(checkStatus)
     .then(parseJSON)
@@ -97,3 +104,4 @@ export default function request(url, options) {
     })
     .catch(err => ({ err }));
 }
+
