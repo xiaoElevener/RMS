@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'dva';
 import UserTable from './components/UserTable';
 import ListSearch from './components/ListSearch';
 

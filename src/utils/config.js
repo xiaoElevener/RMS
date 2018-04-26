@@ -9,7 +9,12 @@ export default {
         user: {
             userList: '/ajax/userList',
             user: '/ajax/user',
-            login: 'ajax/user/login',
+            login: '/ajax/user/login',
+            loginNameList: '/ajax/user/loginNameList'
+        },
+        consume: {
+            dealHistory: '/ajax/dealHistory'
         }
+
     },
 }

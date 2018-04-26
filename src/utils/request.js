@@ -41,7 +41,7 @@ function checkStatus(response) {
 }
 
 function checkSuccess(data) {
-  
+
   if (data.success) {
     return data;
   }
@@ -50,7 +50,7 @@ function checkSuccess(data) {
     message: `请求错误`,
     description: data.message,
   });
-  
+
   const error = new Error(data.message);
   throw error;
 }
@@ -83,13 +83,15 @@ export default function request(url, options) {
     }
   } else if (newOptions.method === 'GET') {
     const params = newOptions.params;
-    let paramsArray = [];
-    //拼接参数  
-    Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
-    if (url.search(/\?/) === -1) {
-      url += '?' + paramsArray.join('&')
-    } else {
-      url += '&' + paramsArray.join('&')
+    if (params) {
+      let paramsArray = [];
+      //拼接参数  
+      Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
+      if (url.search(/\?/) === -1) {
+        url += '?' + paramsArray.join('&')
+      } else {
+        url += '&' + paramsArray.join('&')
+      }
     }
   }
 

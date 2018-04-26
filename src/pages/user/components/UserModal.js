@@ -33,7 +33,6 @@ class UserModal extends Component {
           const { record: { lockVersion } } = this.props;
           values = { ...values, lockVersion };
         }
-        debugger;
         onOk(values);
         this.hideModelHandler();
       }
@@ -46,7 +45,7 @@ class UserModal extends Component {
     let loginNameInput = null;
     let userNameInput = null;
     let telephoneInput = null;
-    if (type == 'edit') {
+    if (type === 'edit') {
       const { loginName, userName, telephone, lockVersion } = this.props.record;
       loginNameInput = loginName;
       userNameInput = userName;
@@ -100,7 +99,7 @@ class UserModal extends Component {
                 })(<Input />)
               }
             </FormItem>
-            {type == 'create' && (
+            {type === 'create' && (
               <FormItem
                 {...formItemLayout}
                 label="密码"

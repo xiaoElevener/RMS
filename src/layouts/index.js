@@ -6,7 +6,7 @@ import style from './index.less';
 
 const Layout = (props) => {
     console.log(props.location);
-    if (props.location.pathname == '/login') {
+    if (props.location.pathname === '/login') {
         return (
             <div>{props.children}</div>
         );

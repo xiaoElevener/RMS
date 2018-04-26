@@ -1,5 +1,4 @@
 import * as userService from '../services/userService';
-import { duration } from 'moment';
 import { dealObjectValue } from '../../../utils/index';
 export default {
     namespace: 'user',
@@ -12,7 +11,8 @@ export default {
             loginName: null,
             userName: null,
             telephone: null
-        }
+        },
+        
     },
 
     reducers: {
@@ -30,7 +30,9 @@ export default {
 
         changeQuery(state, { payload: { query } }) {
             return { ...state, query, pageNumber: 1 };
-        }
+        },
+
+       
 
     },
 
@@ -59,13 +61,13 @@ export default {
             yield put({ type: 'fetch' });
         },
 
+        
     },
 
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
                 console.log('pathname=' + pathname);
-
                 if (pathname === '/user') {
                     dispatch({ type: 'fetch' });
                 }
