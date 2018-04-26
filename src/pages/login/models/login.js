@@ -1,6 +1,4 @@
 import * as loginService from '../services/loginService';
-import { duration } from 'moment';
-import { dealObjectValue } from '../../../utils/index';
 import router from 'umi/router';
 export default {
     namespace: 'login',

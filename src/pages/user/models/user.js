@@ -12,7 +12,7 @@ export default {
             userName: null,
             telephone: null
         },
-        
+
     },
 
     reducers: {
@@ -32,7 +32,7 @@ export default {
             return { ...state, query, pageNumber: 1 };
         },
 
-       
+
 
     },
 
@@ -61,7 +61,7 @@ export default {
             yield put({ type: 'fetch' });
         },
 
-        
+
     },
 
     subscriptions: {

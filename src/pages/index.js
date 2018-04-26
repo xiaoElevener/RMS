@@ -1,16 +1,15 @@
 import React from 'react';
-import { connect } from 'dva';
+
 import styles from './index.css';
+import DealShow from './consume/components/DealShow';
 
 function IndexPage() {
   return (
     <div className={styles.normal}>
-      <h1>hello world</h1>
+      <DealShow />
     </div>
   );
 }
 
-IndexPage.propTypes = {
-};
 
-export default connect()(IndexPage);
+export default IndexPage;

@@ -13,7 +13,8 @@ export default {
             loginNameList: '/ajax/user/loginNameList'
         },
         consume: {
-            dealHistory: '/ajax/dealHistory'
+            dealHistory: '/ajax/dealHistory',
+            statistical: '/ajax/dailyStatistical'
         }
 
     },
