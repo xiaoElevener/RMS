@@ -16,6 +16,9 @@ export default {
         consume: {
             dealHistory: PREFIX + '/ajax/dealHistory',
             statistical: PREFIX + '/ajax/dailyStatistical'
+        },
+        messageBoard:{
+            messageBoardList: PREFIX+ '/ajax/messageList'
         }
 
     },

@@ -2,6 +2,7 @@ import React from 'react';
 import DealShow from './consume/components/DealShow';
 import { Row, Card, Col } from 'antd';
 import SmallCardContent from '../components/SmallCardContent';
+import MessageBoard from '../components/MessageBoard';
 
 function IndexPage() {
   return (
@@ -24,7 +25,7 @@ function IndexPage() {
       </Row>
       <Row gutter={16}>
         <Col span={12}>
-          <Card bordered={false}>内容</Card>
+          <Card bordered={false}><MessageBoard /></Card>
         </Col>
         <Col span={12}>
           <Card bordered={false}>内容</Card>

@@ -1,5 +1,5 @@
 import { Icon, Row, Col } from "antd";
-import style from './components.less';
+import style from './SmallCardContent.less';
 
 function SmallCardContent({ icon_name, color, title, content }) {
 

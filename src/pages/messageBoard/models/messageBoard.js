@@ -1,0 +1,62 @@
+import * as messageBoardService from '../services/messageBoardService';
+import { dealObjectValue } from '../../../utils/index';
+import { notification } from 'antd';
+export default {
+    namespace: 'messageBoard',
+    state: {
+        data: [],
+        partData: [],
+        total: null,
+        pageSize: 10,
+        pageNumber: 1,
+
+    },
+
+    reducers: {
+        save(state, { payload: { data, total } }) {
+            return { ...state, data, total };
+        },
+
+        savePartData(state, { payload: partData }) {
+            return { ...state, partData };
+        },
+
+        changePage(state, { payload: { pageSize, pageNumber } }) {
+            return { ...state, pageSize, pageNumber };
+        },
+
+        changePageSize(state, { payload: { pageSize } }) {
+            return { ...state, pageSize, pageNumber: 1 };
+        },
+
+    },
+
+    effects: {
+        *fetch({ }, { call, put, select }) {
+            const messageBoard = yield select(state => state.messageBoard);
+            const pageSize = messageBoard.pageSize;
+            const pageNumber = messageBoard.pageNumber;
+            const partData = messageBoard.partData;
+            const { voList, total } = yield call(messageBoardService.queryAll, { pageSize, pageNumber });
+            if (partData) {
+                yield put({ type: 'savePartData', payload: voList.filter((item, key) => key < 3) })
+            }
+            yield put({ type: 'save', payload: { data: voList, total } });
+        },
+
+
+    },
+
+    subscriptions: {
+        setup({ dispatch, history }) {
+            return history.listen(({ pathname, query }) => {
+                if (pathname === '/messageBoard' || pathname === '/' ) {
+                    dispatch({ type: 'fetch' });
+                }
+            });
+        },
+    },
+
+
+
+}
