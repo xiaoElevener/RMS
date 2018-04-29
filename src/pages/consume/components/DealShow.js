@@ -13,7 +13,6 @@ function DealShow({ dispatch, statistical }) {
   let set = new Set(dateData);
 
   const date = Array.from(set);
-  debugger;
   const option = {
     color: ['#daecfd', '#e6fdd3'],
     title: {
@@ -56,7 +55,6 @@ function DealShow({ dispatch, statistical }) {
 
 function mapStateToProps(state) {
   const { statistical } = state.consume;
-  debugger;
   return { statistical };
 }
 

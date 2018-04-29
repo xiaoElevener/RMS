@@ -1,20 +1,21 @@
+const PREFIX = '/weather';
 export default {
     name: '员工餐费管理系统',
-    prefix: 'rms',
+    prefix: 'weather',
     footerText: 'rms  © 2018 Lin LingXiao',
     CORS: [],
     openPages: ['/login'],
     logo: '../../assets/logo.png',
     api: {
         user: {
-            userList: '/ajax/userList',
-            user: '/ajax/user',
-            login: '/ajax/user/login',
-            loginNameList: '/ajax/user/loginNameList'
+            userList: PREFIX + '/ajax/userList',
+            user: PREFIX + '/ajax/user',
+            login: PREFIX + '/ajax/user/login',
+            loginNameList: PREFIX + '/ajax/user/loginNameList'
         },
         consume: {
-            dealHistory: '/ajax/dealHistory',
-            statistical: '/ajax/dailyStatistical'
+            dealHistory: PREFIX + '/ajax/dealHistory',
+            statistical: PREFIX + '/ajax/dailyStatistical'
         }
 
     },

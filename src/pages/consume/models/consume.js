@@ -58,7 +58,7 @@ export default {
             return history.listen(({ pathname, query }) => {
                 if (pathname === '/consume') {
                     dispatch({ type: 'getLoginNameList' });
-                } else if (pathname === '/') {
+                } else if (pathname === '/'||pathname === '/index.html') {
                     dispatch({ type: 'getStatistical' });
                 }
 

@@ -3,9 +3,10 @@ import React from 'react';
 import { connect } from 'dva';
 
 
-function UserSearch({ dispatch, dataSource, onUserChange,value}) {
+function UserSearch({ dispatch, dataSource, onUserChange, value }) {
 
     const handleSearch = (value) => {
+        debugger;
         dispatch({
             type: 'consume/filterLoginNameList',
             payload: value
@@ -16,10 +17,11 @@ function UserSearch({ dispatch, dataSource, onUserChange,value}) {
     return (<AutoComplete
         dataSource={dataSource}
         style={{ width: 200 }}
-        onSelect={onUserChange}
+        onChange={onUserChange}
         onSearch={handleSearch.bind()}
         placeholder="请输入账号"
         value={value}
+        allowClear={true}
     />);
 }
 

@@ -20,7 +20,6 @@ export default {
     effects: {
         *login({ payload }, { call, put }) {
             const { vo } = yield call(loginService.login, payload);
-            debugger;
             yield put({ type: 'save', payload: { data: vo } });
             router.push('/');
         },
