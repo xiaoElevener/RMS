@@ -49,7 +49,7 @@ class ListSearch extends React.Component {
 
     render() {
         return (
-            <Row>
+            <Row style={{ marginBottom: 40 }}>
                 <InputGroup>
                     <Col span="6">
                         <Input id="loginName" placeholder="账号" ref="loginName" />
@@ -58,16 +58,16 @@ class ListSearch extends React.Component {
                         <Input id="userName" placeholder="姓名" ref="userName" />
                     </Col>
                     <Col span="6">
-                        <InputNumber id="telephone" placeholder="手机号" ref="telephone" />
+                        <InputNumber id="telephone" placeholder="手机号" ref="telephone" style={{ width: "100%" }} />
                     </Col>
-                    <Button type="primary" shape="circle-outline" onClick={this.changeQuery}>
-                        <Icon type="search" />
-                    </Button>
-
-                    <UserModal type='create' onOk={this.createHandler.bind(null, null)}>
-                        <Button type="primary">新建用户</Button>
-                    </UserModal>
-
+                    <Col span="6">
+                        <Button type="primary" shape="circle-outline" onClick={this.changeQuery} style={{ marginLeft: 50 }}>
+                            <Icon type="search" />
+                        </Button>
+                        <UserModal type='create' onOk={this.createHandler.bind(null, null)}>
+                            <Button type="primary" style={{ marginLeft: 50 }}><Icon type="usergroup-add" /></Button>
+                        </UserModal>
+                    </Col>
                 </InputGroup>
 
             </Row>

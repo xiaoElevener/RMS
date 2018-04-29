@@ -7,11 +7,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "dva": "^2.1.0",
     "echarts": "^4.0.4",
     "echarts-for-react": "^2.0.8",
-    "umi": "^1.0.0-0",
-    "umi-plugin-dva": "^0.1.5"
+    "umi": "^1.1.6",
+    "umi-plugin-dva": "^0.6.0",
+    "umi-plugin-routes": "^0.1.2"
   },
   "devDependencies": {
     "eslint": "^4.14.0",

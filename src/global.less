@@ -1,0 +1,39 @@
+
+html, body, :global(#root) {
+  height: 100%;
+}
+
+body {
+  :global{
+    .ant-card-body{
+      margin-bottom: 40px;
+    }
+
+    .ant-table {
+      .ant-table-thead > tr > th {
+        text-align: center;
+      }
+  
+      .ant-table-tbody > tr > td {
+        text-align: center;
+      }
+  
+      &.ant-table-small {
+        .ant-table-thead > tr > th {
+          background: #f7f7f7;
+        }
+  
+        .ant-table-body > table {
+          padding: 0;
+        }
+      }
+    }
+
+    .ant-table-pagination {
+      float: none!important;
+      display: table;
+      margin: 16px auto !important;
+    }
+  }
+}
+

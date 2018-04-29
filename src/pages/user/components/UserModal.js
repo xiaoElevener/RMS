@@ -67,6 +67,8 @@ class UserModal extends Component {
           visible={this.state.visible}
           onOk={this.okHandler}
           onCancel={this.hideModelHandler}
+          okText="确认"
+          cancelText="取消"
         >
           <Form horizontal="true" onSubmit={this.okHandler}>
             <FormItem

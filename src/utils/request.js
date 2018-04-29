@@ -1,5 +1,5 @@
 import fetch from 'dva/fetch';
-import { notification } from 'antd';
+
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -27,13 +27,7 @@ function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
-
-
   const errText = codeMessage[response.status] || response.statusText;
-  notification.error({
-    message: `请求错误 ${response.status}`,
-    description: errText,
-  });
   const error = new Error(errText);
   error.name = response.status;
   error.response = response;
@@ -45,12 +39,6 @@ function checkSuccess(data) {
   if (data.success) {
     return data;
   }
-
-  notification.error({
-    message: `请求错误`,
-    description: data.message,
-  });
-
   const error = new Error(data.message);
   throw error;
 }
@@ -103,7 +91,6 @@ export default function request(url, options) {
     .then(checkSuccess)
     .then(data => {
       return data;
-    })
-    .catch(err => ({ err }));
+    });
 }
 

@@ -1,9 +1,0 @@
-
-html, body, :global(#root) {
-  height: 100%;
-}
-
-body :global(.ant-card-body){
-  margin-bottom: 40px;
-}
-

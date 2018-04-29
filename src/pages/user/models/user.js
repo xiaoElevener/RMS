@@ -1,5 +1,6 @@
 import * as userService from '../services/userService';
 import { dealObjectValue } from '../../../utils/index';
+import { notification } from 'antd';
 export default {
     namespace: 'user',
     state: {
@@ -53,11 +54,17 @@ export default {
 
         *update({ payload: { id, values } }, { call, put }) {
             yield call(userService.update, id, values);
+            notification.success({
+                message: `更新成功`,
+            });
             yield put({ type: 'fetch' });
         },
 
         *create({ payload: { values } }, { call, put }) {
             yield call(userService.create, values);
+            notification.success({
+                message: `创建成功`,
+            });
             yield put({ type: 'fetch' });
         },
 

@@ -49,7 +49,8 @@ function DealShow({ dispatch, statistical }) {
       lazyUpdate={true}
       theme={"white"}
       onChartReady={onChartReadyCallback}
-      opts={{ renderer: 'svg' }} />
+      opts={{ renderer: 'svg' }}
+      style={{ width: 1200 }} />
   );
 }
 

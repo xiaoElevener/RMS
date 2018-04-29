@@ -1,4 +1,4 @@
-import { Table, Input, Popconfirm, Pagination } from 'antd';
+import { Table, Input, Popconfirm, Pagination, Icon } from 'antd';
 import React from 'react';
 import { connect } from 'dva';
 import UserModal from './UserModal';
@@ -8,27 +8,27 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
     title: '账号',
     dataIndex: 'loginName',
     key: 'loginName',
-    width: '25%',
+    width: '30%',
   }, {
     title: '姓名',
     dataIndex: 'userName',
     key: 'userName',
-    width: '15%',
+    width: '30%',
   }, {
     title: '手机号',
     dataIndex: 'telephone',
     key: 'telephone',
-    width: '20%',
+    width: '30%',
   }, {
     title: '操作',
     key: 'operation',
     render: (text, record) => (
-      <span>
+      <span style={{ fontSize: 20 }}>
         <UserModal record={record} onOk={editHandler.bind(null, record.id)} type='edit'>
-          <a>编辑</a>
+          <a style={{ margin: "0px 20px" }} ><Icon type="form" /></a>
         </UserModal>
-        <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record.id)}>
-          <a>删除</a>
+        <Popconfirm title="确认要删除?" onConfirm={deleteHandler.bind(null, record.id)} cancelText="取消" okText="确认">
+          <a><Icon type="user-delete" /></a>
         </Popconfirm>
       </span>
     )
@@ -80,7 +80,7 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "white" }}>
       <Table
         bordered
         dataSource={dataSource}

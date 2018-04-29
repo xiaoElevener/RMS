@@ -4,7 +4,7 @@ import ListSearch from './components/ListSearch';
 
 const User = () => {
     return (
-        <div><ListSearch /><UserTable /></div>
+        <div style={{ padding: 20 }}><ListSearch /><UserTable /></div>
     );
 }
 
