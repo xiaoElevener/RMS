@@ -12,13 +12,13 @@ export default class Menu extends React.Component {
             <AntMenu className={style.menu} mode="inline">
                 <MenuItem key="index">
                     <NavLink to="/">
-                        <span><Icon type="pay-circle-o" />首页</span>
+                        <span><Icon type="dashboard" />首页</span>
                     </NavLink>
                 </MenuItem>
-                <SubMenu key="userOption" title={<span><Icon type="mail" /><span>基本功能</span></span>}>
+                <SubMenu key="userOption" title={<span><Icon type="bars" /><span>基本功能</span></span>}>
                     <MenuItem key="user">
                         <NavLink to="user">
-                            <Icon type="pie-chart" />
+                            <Icon type="idcard" />
                             <span>用户列表</span>
                         </NavLink>
                     </MenuItem>
