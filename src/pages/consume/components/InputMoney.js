@@ -9,6 +9,7 @@ function InputMoney(props) {
             parser={value => value.replace(/\￥\s?|(,*)/g, '')}
             onChange={props.onMoneyChange}
             value={props.value}
+            style={props.style}
         />
     );
 

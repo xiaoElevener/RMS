@@ -62,14 +62,13 @@ class Consume extends React.Component {
             loginName,
             money
         } = this.state;
-        debugger;
         return (
-            <Row>
-                <UserSearch onUserChange={this.changeLoginName} value={loginName} />
-                <TypeSelect style={{ width: 240 }} onTypeChange={this.changeDealType} value={dealType} />
-                <InputMoney onMoneyChange={this.changeMoney} value={money} />
-                <Button type="primary" onClick={this.submitDeal} >提交</Button>
-            </Row>);
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <UserSearch onUserChange={this.changeLoginName} value={loginName} style={{ width: 200, margin: "30px 0px" }} />
+                <TypeSelect style={{ width: 240 }} onTypeChange={this.changeDealType} value={dealType} style={{ width: 200, margin: "30px 0px" }} />
+                <InputMoney onMoneyChange={this.changeMoney} value={money} style={{ width: 200, margin: "30px 0px" }} />
+                <Button type="primary" onClick={this.submitDeal} style={{ width: 200, margin: "30px 0px" }}>提交</Button>
+            </div>);
     }
 }
 

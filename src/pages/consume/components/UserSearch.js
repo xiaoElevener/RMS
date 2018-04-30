@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'dva';
 
 
-function UserSearch({ dispatch, dataSource, onUserChange, value }) {
+function UserSearch({ dispatch, dataSource, onUserChange, value, style }) {
 
     const handleSearch = (value) => {
         debugger;
@@ -22,6 +22,7 @@ function UserSearch({ dispatch, dataSource, onUserChange, value }) {
         placeholder="请输入账号"
         value={value}
         allowClear={true}
+        style={style}
     />);
 }
 

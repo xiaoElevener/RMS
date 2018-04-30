@@ -19,7 +19,11 @@ export default {
         },
         messageBoard:{
             messageBoardList: PREFIX+ '/ajax/messageList'
-        }
+        },
+        predefinedCode: {
+            predefinedCodeList: PREFIX + '/ajax/predefinedCodeList',
+            predefinedCode: PREFIX + '/ajax/predefinedCode',
+        },
 
     },
 }

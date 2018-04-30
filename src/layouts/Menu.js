@@ -28,6 +28,11 @@ export default class Menu extends React.Component {
                         <span><Icon type="pay-circle-o" />消费</span>
                     </NavLink>
                 </MenuItem>
+                <MenuItem key="predefinedCode">
+                    <NavLink to="predefinedCode">
+                        <span><Icon type="setting" />系统配置</span>
+                    </NavLink>
+                </MenuItem>
             </AntMenu>
         );
     }
