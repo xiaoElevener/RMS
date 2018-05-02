@@ -7,7 +7,6 @@ export default {
     state: {
         loginNameList: [],
         filterList: [],
-        statistical: []
     },
 
     reducers: {
@@ -20,9 +19,6 @@ export default {
             return { ...state, filterList };
         },
 
-        saveStatistical(state, { payload: statistical }) {
-            return { ...state, statistical };
-        }
     },
 
     effects: {
@@ -47,10 +43,6 @@ export default {
             });
         },
 
-        *getStatistical({ }, { call, put }) {
-            const { voList } = yield call(consumeService.getStatistical);
-            yield put({ type: 'saveStatistical', payload: voList });
-        }
     },
 
     subscriptions: {
@@ -58,10 +50,7 @@ export default {
             return history.listen(({ pathname, query }) => {
                 if (pathname === '/consume') {
                     dispatch({ type: 'getLoginNameList' });
-                } else if (pathname === '/'||pathname === '/index.html') {
-                    dispatch({ type: 'getStatistical' });
                 }
-
             });
         },
     },

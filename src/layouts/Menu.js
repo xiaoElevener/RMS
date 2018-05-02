@@ -22,17 +22,23 @@ export default class Menu extends React.Component {
                             <span>用户列表</span>
                         </NavLink>
                     </MenuItem>
-                </SubMenu>
-                <MenuItem key="consume">
-                    <NavLink to="/consume">
-                        <span><Icon type="pay-circle-o" />消费</span>
-                    </NavLink>
-                </MenuItem>
-                <MenuItem key="predefinedCode">
+                    <MenuItem key="predefinedCode">
                     <NavLink to="/predefinedCode">
                         <span><Icon type="setting" />系统配置</span>
                     </NavLink>
                 </MenuItem>
+                </SubMenu>
+                <MenuItem key="consume">
+                    <NavLink to="/consume">
+                        <span><Icon type="pay-circle-o" />消费/充值</span>
+                    </NavLink>
+                </MenuItem>
+                <MenuItem key="dealHistory">
+                    <NavLink to="/dealHistory">
+                        <span><Icon type="table" />交易记录</span>
+                    </NavLink>
+                </MenuItem>
+                
             </AntMenu>
         );
     }

@@ -27,16 +27,13 @@ export default {
         },
 
         *checkPath({ pathname }, { select }) {
+            debugger;
             const login = yield select(state => state.login);
             const { paths } = login;
             if (!paths || !paths.find((value) => {
                 return value === pathname
             })) {
                 router.push("/login");
-                notification.error({
-                    message: `无此页面权限`,
-                    description: '请更换账号',
-                });
             }
         }
     },
@@ -45,6 +42,7 @@ export default {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
                 if (pathname !== '/login') {
+                    debugger;
                     dispatch({ type: 'checkPath', pathname });
                 }
             });

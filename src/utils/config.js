@@ -13,12 +13,13 @@ export default {
             login: PREFIX + '/ajax/user/login',
             loginNameList: PREFIX + '/ajax/user/loginNameList'
         },
-        consume: {
+        dealHistory: {
             dealHistory: PREFIX + '/ajax/dealHistory',
-            statistical: PREFIX + '/ajax/dailyStatistical'
+            statistical: PREFIX + '/ajax/dailyStatistical',
+            dealHistoryList: PREFIX + '/ajax/dealHistoryList'
         },
-        messageBoard:{
-            messageBoardList: PREFIX+ '/ajax/messageList'
+        messageBoard: {
+            messageBoardList: PREFIX + '/ajax/messageList'
         },
         predefinedCode: {
             predefinedCodeList: PREFIX + '/ajax/predefinedCodeList',
