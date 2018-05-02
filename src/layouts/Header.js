@@ -11,7 +11,11 @@ const Header = () => {
     return (
         <AntHeader className={style.header}>
             <Menu mode="horizontal" className={style.popOverMenu}>
-                <Item key="message" className={style.MenuItem}><Icon type="mail" /></Item>
+                <Item key="message" className={style.MenuItem}>
+                    <NavLink to='/messageBoard'>
+                        <Icon type="mail" />
+                    </NavLink>
+                </Item>
                 <SubMenu key="sub_menu" title={<Icon type="user" />} className={style.MenuItem}>
                     <Item key="user_info">个人信息</Item>
                     <NavLink to='/login'>

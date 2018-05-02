@@ -1,5 +1,6 @@
 import * as loginService from '../services/loginService';
 import router from 'umi/router';
+import { notification } from 'antd';
 export default {
     namespace: 'login',
     state: {
@@ -7,7 +8,8 @@ export default {
         userName: null,
         telephone: null,
         lastAttemptedLoginTime: null,
-        roles: {}
+        paths: [],
+        roles: []
     },
 
     reducers: {
@@ -24,7 +26,28 @@ export default {
             router.push('/');
         },
 
+        *checkPath({ pathname }, { select }) {
+            const login = yield select(state => state.login);
+            const { paths } = login;
+            if (!paths || !paths.find((value) => {
+                return value === pathname
+            })) {
+                router.push("/login");
+                notification.error({
+                    message: `无此页面权限`,
+                    description: '请更换账号',
+                });
+            }
+        }
     },
 
-
+    subscriptions: {
+        setup({ dispatch, history }) {
+            return history.listen(({ pathname, query }) => {
+                if (pathname !== '/login') {
+                    dispatch({ type: 'checkPath', pathname });
+                }
+            });
+        },
+    },
 }

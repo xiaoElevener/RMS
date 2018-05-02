@@ -1,6 +1,5 @@
 import * as messageBoardService from '../services/messageBoardService';
 import { dealObjectValue } from '../../../utils/index';
-import { notification } from 'antd';
 export default {
     namespace: 'messageBoard',
     state: {
@@ -38,7 +37,7 @@ export default {
             const pageNumber = messageBoard.pageNumber;
             const partData = messageBoard.partData;
             const { voList, total } = yield call(messageBoardService.queryAll, { pageSize, pageNumber });
-            if (partData) {
+            if (partData.length === 0) {
                 yield put({ type: 'savePartData', payload: voList.filter((item, key) => key < 3) })
             }
             yield put({ type: 'save', payload: { data: voList, total } });
@@ -50,7 +49,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
-                if (pathname === '/messageBoard' || pathname === '/' ) {
+                if (pathname === '/messageBoard' || pathname === '/') {
                     dispatch({ type: 'fetch' });
                 }
             });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Button } from 'antd';
+import { Row, Button, message } from 'antd';
 import { connect } from 'dva';
 import UserSearch from './components/UserSearch';
 import TypeSelect from './components/TypeSelect';
@@ -37,7 +37,10 @@ class Consume extends React.Component {
     submitDeal = () => {
         const { dealType, loginName, money } = this.state;
         const { dispatch } = this.props;
-
+        if (!(dealType && loginName && money)) {
+            message.error('请检查未填输入框！');
+            return;
+        }
         dispatch({
             type: 'consume/create',
             payload: {
