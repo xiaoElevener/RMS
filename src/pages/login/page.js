@@ -51,7 +51,7 @@ const Login = ({
           })(<Input type="password" onPressEnter={handleOk} placeholder="密码" />)}
         </FormItem>
         <Row>
-          <Button type="primary" onClick={handleOk} loading={loading.effects.login}>
+          <Button type="primary" onClick={handleOk} loading={loading.models.login}>
             Sign in
           </Button>
         </Row>

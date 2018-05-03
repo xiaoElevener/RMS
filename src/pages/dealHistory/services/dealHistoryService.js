@@ -11,3 +11,7 @@ export function queryAll(params) {
         method: 'GET', params
     });
 }
+
+export function getCountStatistical(){
+    return request(dealHistoryApi.countStatistical, { method: 'GET'})
+}

@@ -9,13 +9,16 @@ export default {
         telephone: null,
         lastAttemptedLoginTime: null,
         paths: [],
-        roles: []
+        roles: [],
     },
 
     reducers: {
         save(state, { payload: { data } }) {
             return { ...state, ...data };
         },
+        clear(state) {
+
+        }
 
     },
 
@@ -35,7 +38,8 @@ export default {
             })) {
                 router.push("/login");
             }
-        }
+        },
+
     },
 
     subscriptions: {

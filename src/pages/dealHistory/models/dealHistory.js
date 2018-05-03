@@ -8,6 +8,11 @@ export default {
         total: null,
         pageSize: 10,
         pageNumber: 1,
+        countStatistical: {
+            wechatUser: null,
+            wechatMessage: null,
+            dealCount: null
+        }
     },
 
     reducers: {
@@ -26,6 +31,10 @@ export default {
         changePageSize(state, { payload: { pageSize } }) {
             return { ...state, pageSize, pageNumber: 1 };
         },
+
+        saveCountStatistical(state, { payload: countStatistical }) {
+            return { ...state, countStatistical };
+        }
     },
 
     effects: {
@@ -40,6 +49,12 @@ export default {
         *getStatistical({ }, { call, put }) {
             const { voList } = yield call(dealHistoryService.getStatistical);
             yield put({ type: 'saveStatistical', payload: voList });
+        },
+
+        *getCountStatistical({ }, { call, put }) {
+            debugger;
+            const { vo } = yield call(dealHistoryService.getCountStatistical);
+            yield put({ type: 'saveCountStatistical', payload: vo });
         }
     },
 
@@ -48,6 +63,7 @@ export default {
             return history.listen(({ pathname, query }) => {
                 if (pathname === '/' || pathname === '/index.html' || pathname == 'dealHistory') {
                     dispatch({ type: 'getStatistical' });
+                    dispatch({ type: 'getCountStatistical' });
                 }
                 if (pathname === '/dealHistory') {
                     dispatch({ type: 'fetch' });
