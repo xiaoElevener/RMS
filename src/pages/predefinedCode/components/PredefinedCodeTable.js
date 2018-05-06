@@ -5,19 +5,14 @@ import PredefinedCodeModal from './PredefinedCodeModal';
 
 function PredefinedCodeTable({ dispatch, data: dataSource, total, pageSize, pageNumber, loading }) {
   const columns = [{
-    title: '编码',
-    dataIndex: 'code',
-    key: 'code',
-    width: '30%',
+    title: '描述',
+    dataIndex: 'description',
+    key: 'description',
+    width: '50%',
   }, {
     title: '值',
     dataIndex: 'value',
     key: 'value',
-    width: '30%',
-  }, {
-    title: '描述',
-    dataIndex: 'description',
-    key: 'description',
     width: '30%',
   }, {
     title: '操作',
@@ -27,9 +22,6 @@ function PredefinedCodeTable({ dispatch, data: dataSource, total, pageSize, page
         <PredefinedCodeModal record={record} onOk={editHandler.bind(null, record.id)} type='edit'>
           <a style={{ margin: "0px 20px" }} ><Icon type="form" /></a>
         </PredefinedCodeModal>
-        <Popconfirm title="确认要删除?" onConfirm={deleteHandler.bind(null, record.id)} cancelText="取消" okText="确认">
-          <a><Icon type="close" /></a>
-        </Popconfirm>
       </span>
     )
   }];

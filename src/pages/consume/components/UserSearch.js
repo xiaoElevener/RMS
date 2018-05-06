@@ -6,7 +6,6 @@ import { connect } from 'dva';
 function UserSearch({ dispatch, dataSource, onUserChange, value, style }) {
 
     const handleSearch = (value) => {
-        debugger;
         dispatch({
             type: 'consume/filterLoginNameList',
             payload: value

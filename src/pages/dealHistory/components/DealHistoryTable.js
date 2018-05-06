@@ -1,6 +1,18 @@
-import { Table, Input, Popconfirm, Pagination, Icon } from 'antd';
+import { Table, Input, Popconfirm, Pagination, Icon, Tag } from 'antd';
 import React from 'react';
 import { connect } from 'dva';
+
+
+const status = {
+    RECHARGE: {
+        color: '#8fc9fb',
+        text: '充值',
+    },
+    CONSUME: {
+        color: '#f69899',
+        text: '消费',
+    },
+}
 
 function DealHistoryTable({ dispatch, data: dataSource, total, pageSize, pageNumber, loading }) {
     const columns = [{
@@ -18,19 +30,14 @@ function DealHistoryTable({ dispatch, data: dataSource, total, pageSize, pageNum
         dataIndex: 'dealType',
         key: 'dealType',
         width: '10%',
-        render: (text) => {
-            if (text === 'RECHARGE')
-                return '充值';
-            else
-                return '消费';
-        }
+        render: text => <Tag color={status[text].color}>{status[text].text}</Tag>,
     }, {
         title: '金额',
         key: 'money',
         dataIndex: 'money',
         width: '25%',
-        render: (text) => '￥' + text
-    },{
+        render: (text, record) => <span style={{ color: status[record.dealType].color }}>￥{text}</span>,
+    }, {
         title: '时间',
         key: 'createdTime',
         dataIndex: 'createdTime',

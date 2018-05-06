@@ -18,9 +18,7 @@ const Header = () => {
                 </Item>
                 <SubMenu key="sub_menu" title={<Icon type="user" />} className={style.MenuItem}>
                     <Item key="user_info">个人信息</Item>
-                    <NavLink to='/login'>
-                        <Item key="sign_out">退出登录</Item>
-                    </NavLink>
+                    <Item key="sign_out"><NavLink to='/login'>退出登录</NavLink></Item>
                 </SubMenu>
             </Menu>
         </AntHeader>

@@ -38,7 +38,7 @@ export default {
             const partData = messageBoard.partData;
             const { voList, total } = yield call(messageBoardService.queryAll, { pageSize, pageNumber });
             if (partData.length === 0) {
-                yield put({ type: 'savePartData', payload: voList.filter((item, key) => key < 3) })
+                yield put({ type: 'savePartData', payload: voList.filter((item, key) => key < 4) })
             }
             yield put({ type: 'save', payload: { data: voList, total } });
         },

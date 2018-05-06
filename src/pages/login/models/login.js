@@ -16,8 +16,16 @@ export default {
         save(state, { payload: { data } }) {
             return { ...state, ...data };
         },
-        clear(state) {
-
+        clear(state, ) {
+            return {
+                ...state,
+                loginName: null,
+                userName: null,
+                telephone: null,
+                lastAttemptedLoginTime: null,
+                paths: [],
+                roles: [],
+            }
         }
 
     },
@@ -30,7 +38,6 @@ export default {
         },
 
         *checkPath({ pathname }, { select }) {
-            debugger;
             const login = yield select(state => state.login);
             const { paths } = login;
             if (!paths || !paths.find((value) => {
@@ -46,8 +53,9 @@ export default {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
                 if (pathname !== '/login') {
-                    debugger;
                     dispatch({ type: 'checkPath', pathname });
+                } else {
+                    dispatch({ type: 'clear' });
                 }
             });
         },

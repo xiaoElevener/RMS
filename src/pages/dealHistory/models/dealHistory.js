@@ -52,7 +52,6 @@ export default {
         },
 
         *getCountStatistical({ }, { call, put }) {
-            debugger;
             const { vo } = yield call(dealHistoryService.getCountStatistical);
             yield put({ type: 'saveCountStatistical', payload: vo });
         }
