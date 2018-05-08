@@ -3,6 +3,7 @@ import DealShow from './consume/components/DealShow';
 import { Row, Card, Col } from 'antd';
 import SmallCardContent from '../components/SmallCardContent';
 import MessageBoard from '../pages/messageBoard/components/MessageBoard';
+import Weather from '../components/Weather';
 import { connect } from 'dva';
 
 function IndexPage({ countStatistical }) {
@@ -29,7 +30,7 @@ function IndexPage({ countStatistical }) {
           <Card bordered={false}><MessageBoard type='card' /></Card>
         </Col>
         <Col span={12}>
-          <Card bordered={false}>内容</Card>
+          <Card bordered={false} style={{ backgroundColor: '#8fc9fb' }}><Weather /></Card>
         </Col>
       </Row>
     </div>

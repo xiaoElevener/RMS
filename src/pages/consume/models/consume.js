@@ -36,10 +36,10 @@ export default {
         },
 
         *create({ payload: parms }, { call }) {
-            yield call(consumeService.create, parms);
+            const { vo } = yield call(consumeService.create, parms);
             notification.success({
-                message: '成功',
-                description: '交易完成'
+                message: '交易成功',
+                description: '余额：' + vo.balance + '   透支次数：' + vo.overdraft
             });
         },
 

@@ -14,7 +14,7 @@ function DealShow({ dispatch, statistical }) {
 
   const date = Array.from(set);
   const option = {
-    color: ['#daecfd', '#e6fdd3'],
+    color: ['#f69899', '#d37feb'],
     title: {
       text: '近期交易金额统计'
     },

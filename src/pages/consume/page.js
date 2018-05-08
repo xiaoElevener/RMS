@@ -10,7 +10,7 @@ class Consume extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dealType: null,
+            dealType: "CONSUME",
             loginName: null,
             money: null
         };
@@ -51,7 +51,7 @@ class Consume extends React.Component {
         });
 
         this.setState({
-            dealType: null,
+            dealType: "CONSUME",
             loginName: null,
             money: null
         });

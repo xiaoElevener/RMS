@@ -10,12 +10,23 @@ export default {
         lastAttemptedLoginTime: null,
         paths: [],
         roles: [],
+        weather: {
+            city: null,
+            text: null,
+            temperature: null,
+            code: 99
+        }
     },
 
     reducers: {
         save(state, { payload: { data } }) {
             return { ...state, ...data };
         },
+
+        saveWeather(state, { weather }) {
+            return { ...state, weather }
+        },
+
         clear(state, ) {
             return {
                 ...state,
@@ -47,6 +58,16 @@ export default {
             }
         },
 
+        *getWeather({ }, { call, put }) {
+            const { vo } = yield call(loginService.getWeather);
+            const weather = {
+                city: vo.location.name,
+                text: vo.now.text,
+                temperature: vo.now.temperature,
+                code: vo.now.code
+            }
+            yield put({ type: 'saveWeather', weather });
+        }
     },
 
     subscriptions: {
@@ -56,6 +77,10 @@ export default {
                     dispatch({ type: 'checkPath', pathname });
                 } else {
                     dispatch({ type: 'clear' });
+                }
+
+                if (pathname === '/') {
+                    dispatch({ type: 'getWeather' });
                 }
             });
         },

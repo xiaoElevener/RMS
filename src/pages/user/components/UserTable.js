@@ -8,18 +8,23 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
     title: '账号',
     dataIndex: 'loginName',
     key: 'loginName',
-    width: '30%',
+    width: '20%',
   }, {
     title: '姓名',
     dataIndex: 'userName',
     key: 'userName',
-    width: '30%',
+    width: '20%',
   }, {
     title: '手机号',
     dataIndex: 'telephone',
     key: 'telephone',
     width: '30%',
   }, {
+    title: '余额',
+    dataIndex: 'balance',
+    key: 'balance',
+    width: '20%',
+  },{
     title: '操作',
     key: 'operation',
     render: (text, record) => (

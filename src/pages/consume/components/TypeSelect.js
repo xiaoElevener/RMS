@@ -7,8 +7,8 @@ function TypeSelect({ onTypeChange, value, style }) {
 
     return (
         <Select onChange={onTypeChange} value={value} style={style}>
-            <Option value="RECHARGE">充值</Option>
-            <Option value="CONSUME">消费</Option>
+            <Option key="RECHARGE">充值</Option>
+            <Option key="CONSUME">消费</Option>
         </Select >
     );
 

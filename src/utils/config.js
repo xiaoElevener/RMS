@@ -26,6 +26,9 @@ export default {
             predefinedCodeList: PREFIX + '/ajax/predefinedCodeList',
             predefinedCode: PREFIX + '/ajax/predefinedCode',
         },
+        weather:{
+            getWeather:PREFIX+ '/ajax/nowWeather'
+        }
 
     },
 }
