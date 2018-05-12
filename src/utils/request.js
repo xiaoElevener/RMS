@@ -43,17 +43,9 @@ function checkSuccess(data) {
   throw error;
 }
 
-/**
- * Requests a URL, returning a promise.
- *
- * @param  {string} url       The URL we want to request
- * @param  {object} [options] The options we want to pass to "fetch"
- * @return {object}           An object containing either "data" or "err"
- */
-export default function request(url, options) {
-  console.log("request   url:" + url + "  options:" + JSON.stringify(options));
+
+function decorate(url, options) {
   const defaultOptions = {
-    // credentials: 'include',
     headers: {},
   };
   const newOptions = { ...defaultOptions, ...options };
@@ -82,15 +74,31 @@ export default function request(url, options) {
       }
     }
   }
+  return { newUrl: url, newOptions };
+}
 
+/**
+ * Requests a URL, returning a promise.
+ *
+ * @param  {string} url       The URL we want to request
+ * @param  {object} [options] The options we want to pass to "fetch"
+ * @return {object}           An object containing either "data" or "err"
+ */
+export function request(url, options) {
+  const { newUrl, newOptions } = decorate(url, options);
   newOptions.headers.Accept = 'application/json';
-  console.log('url:' + url + '   newOptions:' + JSON.stringify(newOptions));
-  return fetch(url, newOptions)
+  debugger;
+  return fetch(newUrl, newOptions)
     .then(checkStatus)
     .then(parseJSON)
     .then(checkSuccess)
     .then(data => {
       return data;
     });
+}
+
+export function download(url, options) {
+  const { newUrl } = decorate(url, options);
+  window.location.href = newUrl;
 }
 

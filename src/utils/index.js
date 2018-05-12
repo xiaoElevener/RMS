@@ -2,7 +2,7 @@
 import classnames from 'classnames'
 import lodash from 'lodash'
 import config from './config'
-import request from './request'
+import { request, download } from './request'
 import { color } from './theme'
 
 // 连字符转驼峰
@@ -390,6 +390,7 @@ function formatDate(fmt) { //author: meizz
 export {
   config,
   request,
+  download,
   color,
   classnames,
   queryURL,

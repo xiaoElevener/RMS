@@ -1,9 +1,9 @@
-import { config, request } from '../../../utils/index';
+import { config, request, download } from '../../../utils/index';
 
 const { api: { dealHistory: dealHistoryApi } } = config;
 
 export function getStatistical(parms) {
-    return request(dealHistoryApi.statistical, { method: 'GET'})
+    return request(dealHistoryApi.statistical, { method: 'GET' })
 }
 
 export function queryAll(params) {
@@ -12,6 +12,10 @@ export function queryAll(params) {
     });
 }
 
-export function getCountStatistical(){
-    return request(dealHistoryApi.countStatistical, { method: 'GET'})
+export function getCountStatistical() {
+    return request(dealHistoryApi.countStatistical, { method: 'GET' })
+}
+
+export function exportExcel(params) {
+    return download(dealHistoryApi.export, { method: 'GET', params })
 }

@@ -17,7 +17,8 @@ export default {
             dealHistory: PREFIX + '/ajax/dealHistory',
             statistical: PREFIX + '/ajax/dailyStatistical',
             dealHistoryList: PREFIX + '/ajax/dealHistoryList',
-            countStatistical: PREFIX + '/ajax/systemStatistical'
+            countStatistical: PREFIX + '/ajax/systemStatistical',
+            export: PREFIX+'/ajax/dealHistory/export'
         },
         messageBoard: {
             messageBoardList: PREFIX + '/ajax/messageList'
