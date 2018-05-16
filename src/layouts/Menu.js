@@ -11,7 +11,7 @@ export default class Menu extends React.Component {
         return (
             <AntMenu className={style.menu} mode="inline">
                 <MenuItem key="index">
-                    <NavLink to="/">
+                    <NavLink to="/statistical">
                         <span><Icon type="dashboard" />首页</span>
                     </NavLink>
                 </MenuItem>

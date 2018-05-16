@@ -31,7 +31,7 @@ export default {
             const predefinedCode = yield select(state => state.predefinedCode);
             const pageSize = predefinedCode.pageSize;
             const pageNumber = predefinedCode.pageNumber;
-            const { voList, total } = yield call(predefinedCodeService.queryAll, { pageSize, pageNumber});
+            const { voList, total } = yield call(predefinedCodeService.queryAll, { pageSize, pageNumber });
             yield put({ type: 'save', payload: { data: voList, total } });
         },
 
@@ -62,6 +62,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
+                console.log("consume pathname=" + pathname);
                 if (pathname === '/predefinedCode') {
                     dispatch({ type: 'fetch' });
                 }

@@ -13,7 +13,7 @@ function Weather({
                 <div className={styles.left}>
                     <div className={styles.icon}
                         style={{
-                            backgroundImage: `url(${require("../assets/icon/" + code + ".png")})`,
+                            backgroundImage: `url(${require("../../../assets/icon/" + code + ".png")})`,
                         }}
                     />
                     <p>{name}</p>
@@ -27,14 +27,15 @@ function Weather({
 }
 
 function mapStateToProps(state) {
-    const { weather } = state.login;
+    console.log('weather state:'+JSON.stringify(state));
+    const { weather } = state.statistical;
     return {
         city: weather.city,
         icon: '',
         temperature: weather.temperature,
         name: weather.text,
         code: weather.code,
-        loading: state.loading.models.login
+        loading: state.loading.models.statistical
     }
 }
 

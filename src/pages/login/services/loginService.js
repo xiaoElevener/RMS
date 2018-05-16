@@ -1,6 +1,6 @@
 import { config, request } from '../../../utils/index';
 
-const { api: { user: userApi, weather: weatherApi } } = config;
+const { api: { user: userApi } } = config;
 
 export function login(params) {
     return request(userApi.login, {
@@ -8,7 +8,3 @@ export function login(params) {
     });
 }
 
-
-export function getWeather(params) {
-    return request(weatherApi.getWeather, { method: 'GET' });
-}

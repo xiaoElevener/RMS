@@ -24,6 +24,7 @@ function parseJSON(response) {
 }
 
 function checkStatus(response) {
+  console.log('checkStatus' + JSON.stringify(response));
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -35,7 +36,7 @@ function checkStatus(response) {
 }
 
 function checkSuccess(data) {
-
+  console.log('checkSuccess' + JSON.stringify(data));
   if (data.success) {
     return data;
   }
@@ -62,6 +63,7 @@ function decorate(url, options) {
       };
     }
   } else if (newOptions.method === 'GET') {
+    debugger;
     const params = newOptions.params;
     if (params) {
       let paramsArray = [];
@@ -87,7 +89,7 @@ function decorate(url, options) {
 export function request(url, options) {
   const { newUrl, newOptions } = decorate(url, options);
   newOptions.headers.Accept = 'application/json';
-  debugger;
+  console.log('fetch url:' + newUrl);
   return fetch(newUrl, newOptions)
     .then(checkStatus)
     .then(parseJSON)

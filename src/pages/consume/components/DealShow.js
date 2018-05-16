@@ -55,7 +55,7 @@ function DealShow({ dispatch, statistical }) {
 }
 
 function mapStateToProps(state) {
-  const { statistical } = state.dealHistory;
+  const { statistical } = state.statistical;
   return { statistical };
 }
 

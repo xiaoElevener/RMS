@@ -5,8 +5,9 @@ import { Layout as AntLayout } from 'antd';
 import style from './index.less';
 
 const Layout = (props) => {
-    console.log(props.location);
-    if (props.location.pathname === '/login' || props.location.pathname === '/404') {
+    console.log('layout' + JSON.stringify(props.location) );
+    const notLayout = ['/login', '/404', '/binding'];
+    if (notLayout.find((value) => value === props.location.pathname)) {
         return (
             <div>{props.children}</div>
         );

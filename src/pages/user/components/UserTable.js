@@ -2,6 +2,7 @@ import { Table, Input, Popconfirm, Pagination, Icon } from 'antd';
 import React from 'react';
 import { connect } from 'dva';
 import UserModal from './UserModal';
+import { StateType } from 'rmc-tabs/lib/DefaultTabBar';
 
 function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, loading }) {
   const columns = [{
@@ -24,7 +25,7 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
     dataIndex: 'balance',
     key: 'balance',
     width: '20%',
-  },{
+  }, {
     title: '操作',
     key: 'operation',
     render: (text, record) => (
@@ -100,6 +101,7 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
 
 function mapStateToProps(state) {
   const { data, total, pageSize, pageNumber } = state.user;
+  console.log('userTable  ' + JSON.stringify(state));
   return {
     data,
     total,

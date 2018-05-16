@@ -16,6 +16,7 @@ export default {
             temperature: null,
             code: 99
         }
+
     },
 
     reducers: {
@@ -45,7 +46,7 @@ export default {
         *login({ payload }, { call, put }) {
             const { vo } = yield call(loginService.login, payload);
             yield put({ type: 'save', payload: { data: vo } });
-            router.push('/');
+            router.push('/statistical');
         },
 
         *checkPath({ pathname }, { select }) {
@@ -57,31 +58,23 @@ export default {
                 router.push("/login");
             }
         },
-
-        *getWeather({ }, { call, put }) {
-            const { vo } = yield call(loginService.getWeather);
-            const weather = {
-                city: vo.location.name,
-                text: vo.now.text,
-                temperature: vo.now.temperature,
-                code: vo.now.code
-            }
-            yield put({ type: 'saveWeather', weather });
-        }
     },
 
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
-                if (pathname !== '/login') {
-                    dispatch({ type: 'checkPath', pathname });
-                } else {
+                console.log('login pathname=' + pathname);
+                if (pathname === '/login') {
                     dispatch({ type: 'clear' });
-                }
+                } else if (pathname == '/binding') {
 
-                if (pathname === '/') {
-                    dispatch({ type: 'getWeather' });
+                } else if (pathname == '/') {
+                    router.push("/statistical");
+                }else {
+                    console.log('checkPath pathname=' + pathname);
+                    dispatch({ type: 'checkPath', pathname });
                 }
+                
             });
         },
     },

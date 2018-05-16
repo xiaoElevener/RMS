@@ -90,6 +90,7 @@ function DealHistoryTable({ dispatch, data: dataSource, total, pageSize, pageNum
 }
 
 function mapStateToProps(state) {
+    console.log('dealHistory state:' + JSON.stringify(state));
     const { data, total, pageSize, pageNumber } = state.dealHistory;
     return {
         data,

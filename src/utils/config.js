@@ -11,14 +11,15 @@ export default {
             userList: PREFIX + '/ajax/userList',
             user: PREFIX + '/ajax/user',
             login: PREFIX + '/ajax/user/login',
-            loginNameList: PREFIX + '/ajax/user/loginNameList'
+            loginNameList: PREFIX + '/ajax/user/loginNameList',
+            bind: PREFIX + '/ajax/user/bind'
         },
         dealHistory: {
             dealHistory: PREFIX + '/ajax/dealHistory',
             statistical: PREFIX + '/ajax/dailyStatistical',
             dealHistoryList: PREFIX + '/ajax/dealHistoryList',
             countStatistical: PREFIX + '/ajax/systemStatistical',
-            export: PREFIX+'/ajax/dealHistory/export'
+            export: PREFIX + '/ajax/dealHistory/export'
         },
         messageBoard: {
             messageBoardList: PREFIX + '/ajax/messageList'
@@ -27,8 +28,11 @@ export default {
             predefinedCodeList: PREFIX + '/ajax/predefinedCodeList',
             predefinedCode: PREFIX + '/ajax/predefinedCode',
         },
-        weather:{
-            getWeather:PREFIX+ '/ajax/nowWeather'
+        weather: {
+            getWeather: PREFIX + '/ajax/nowWeather'
+        },
+        wechat: {
+            getOpenId: PREFIX + '/openId'
         }
 
     },

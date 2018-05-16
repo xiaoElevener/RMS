@@ -4,24 +4,17 @@ import { dealObjectValue } from '../../../utils/index';
 export default {
     namespace: 'dealHistory',
     state: {
-        statistical: [],
         data: [],
         total: null,
         pageSize: 10,
         pageNumber: 1,
         startDate: null,
         endDate: null,
-        countStatistical: {
-            wechatUser: null,
-            wechatMessage: null,
-            dealCount: null
-        }
+        
     },
 
     reducers: {
-        saveStatistical(state, { payload: statistical }) {
-            return { ...state, statistical };
-        },
+        
 
         save(state, { payload: { data, total } }) {
             return { ...state, data, total };
@@ -35,11 +28,8 @@ export default {
             return { ...state, pageSize, pageNumber: 1 };
         },
 
-        saveCountStatistical(state, { payload: countStatistical }) {
-            return { ...state, countStatistical };
-        },
+        
         saveData(state, { payload }) {
-            debugger;
             return { ...state, ...payload };
         }
     },
@@ -60,24 +50,13 @@ export default {
             yield call(dealHistoryService.exportExcel, dealObjectValue(query));
         },
 
-        *getStatistical({ }, { call, put }) {
-            const { voList } = yield call(dealHistoryService.getStatistical);
-            yield put({ type: 'saveStatistical', payload: voList });
-        },
-
-        *getCountStatistical({ }, { call, put }) {
-            const { vo } = yield call(dealHistoryService.getCountStatistical);
-            yield put({ type: 'saveCountStatistical', payload: vo });
-        }
+        
     },
 
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
-                if (pathname === '/' || pathname === '/index.html' || pathname == 'dealHistory') {
-                    dispatch({ type: 'getStatistical' });
-                    dispatch({ type: 'getCountStatistical' });
-                }
+                console.log('dealhistory pathname=' + pathname + '   ' + pathname === '/');
                 if (pathname === '/dealHistory') {
                     dispatch({ type: 'fetch' });
                 }

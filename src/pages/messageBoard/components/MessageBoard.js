@@ -79,6 +79,7 @@ function MessageBoard({ partData, loading, data, pageSize, pageNumber, type, tot
 }
 
 function mapStateToProps(state) {
+    console.log('messageBoard state:'+JSON.stringify(state));
     const { data, partData, total, pageNumber, pageSize } = state.messageBoard;
     return {
         data,

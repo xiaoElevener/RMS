@@ -48,6 +48,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
+                console.log('consume pathname');
                 if (pathname === '/consume') {
                     dispatch({ type: 'getLoginNameList' });
                 }

@@ -74,7 +74,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             return history.listen(({ pathname, query }) => {
-                console.log('pathname=' + pathname);
+                console.log('user pathname=' + pathname);
                 if (pathname === '/user') {
                     dispatch({ type: 'fetch' });
                 }
