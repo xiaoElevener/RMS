@@ -43,7 +43,7 @@ class BindingInput extends React.Component {
 
         return (
             <List renderHeader={() => '验证账号'}>
-                <span>openId:{this.props.openId}</span>
+                {/* <span>openId:{this.props.openId}</span> */}
                 <InputItem
                     placeholder="请输入账号"
                     onChange={this.setLoginName}
@@ -57,7 +57,7 @@ class BindingInput extends React.Component {
                 >密码：
             </InputItem>
                 <Button onClick={this.binding}>
-                    登录
+                    绑定
             </Button>
             </List>)
     }
