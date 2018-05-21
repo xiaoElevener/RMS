@@ -63,7 +63,6 @@ function decorate(url, options) {
       };
     }
   } else if (newOptions.method === 'GET') {
-    debugger;
     const params = newOptions.params;
     if (params) {
       let paramsArray = [];

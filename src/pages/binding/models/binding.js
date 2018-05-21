@@ -22,7 +22,6 @@ export default {
         },
 
         *getOpenId({ payload }, { call, put }) {
-            debugger;
             const { vo } = yield call(bindingService.getOpenId, payload);
             yield put({
                 type: 'saveState', payload: { openId: vo }
@@ -35,7 +34,6 @@ export default {
             return history.listen(({ pathname, query }) => {
                 if (pathname === '/binding') {
                     const { code } = query;
-                    debugger;
                     dispatch({
                         type: 'getOpenId',
                         payload: { code }

@@ -14,7 +14,7 @@ function rowContent({ countStatistical }) {
                 <Card bordered={false}><SmallCardContent icon_name='bell' color="#D897EB" title="今日留言数" content={countStatistical.wechatMessage} /></Card>
             </Col>
             <Col span={8}>
-                <Card bordered={false}><SmallCardContent icon_name='shopping-cart' color="#F69899" title="今日交易次数" content={countStatistical.dealCo} /></Card>
+                <Card bordered={false}><SmallCardContent icon_name='shopping-cart' color="#F69899" title="今日交易次数" content={countStatistical.dealCount} /></Card>
             </Col>
         </Row>
     );

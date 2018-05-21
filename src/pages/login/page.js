@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import { Button, Row, Form, Input } from 'antd';
 import { config } from '../../utils/index';
-import logo from '../../assets/logo.png'; 
+import logo from '../../assets/logo.png';
 import styles from './page.less';
 
 const FormItem = Form.Item
@@ -52,7 +52,7 @@ const Login = ({
         </FormItem>
         <Row>
           <Button type="primary" onClick={handleOk} loading={loading.models.login}>
-            Sign in
+            登录
           </Button>
         </Row>
       </form>

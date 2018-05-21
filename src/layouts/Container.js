@@ -1,15 +1,16 @@
-import {Layout as AntLayout} from 'antd';
-import Header from './Header';
-import style from "./index.less";
+import {Layout as AntLayout} from 'antd'
+import Header from './Header'
+import Footer from './Footet'
+import style from "./index.less"
 
-const {Content,Footer} =AntLayout;
+const {Content} =AntLayout;
 
 const Container =({children})=>{
         return(
         <AntLayout className={style.container}>
             <Header/>
             <Content className={style.content}>{children}</Content>
-            <Footer><span>Footer</span></Footer>
+            <Footer/>
         </AntLayout>
     )
 }

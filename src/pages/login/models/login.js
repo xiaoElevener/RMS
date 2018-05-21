@@ -56,7 +56,10 @@ export default {
                 return value === pathname
             })) {
                 router.push("/login");
+            } else if (pathname === '/') {
+                router.push('/statistical');
             }
+
         },
     },
 
@@ -66,15 +69,13 @@ export default {
                 console.log('login pathname=' + pathname);
                 if (pathname === '/login') {
                     dispatch({ type: 'clear' });
-                } else if (pathname == '/binding') {
+                } else if (pathname === '/binding') {
 
-                } else if (pathname == '/') {
-                    router.push("/statistical");
-                }else {
+                } else {
                     console.log('checkPath pathname=' + pathname);
                     dispatch({ type: 'checkPath', pathname });
                 }
-                
+
             });
         },
     },
