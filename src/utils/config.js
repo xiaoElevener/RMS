@@ -12,7 +12,8 @@ export default {
             user: PREFIX + '/ajax/user',
             login: PREFIX + '/ajax/user/login',
             loginNameList: PREFIX + '/ajax/user/loginNameList',
-            bind: PREFIX + '/ajax/user/bind'
+            bind: PREFIX + '/ajax/user/bind',
+            logout: PREFIX + '/ajax/user/logout'
         },
         dealHistory: {
             dealHistory: PREFIX + '/ajax/dealHistory',

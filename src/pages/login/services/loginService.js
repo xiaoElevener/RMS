@@ -8,3 +8,9 @@ export function login(params) {
     });
 }
 
+export function logout() {
+    return request(userApi.logout, {
+        method: 'GET'
+    });
+}
+

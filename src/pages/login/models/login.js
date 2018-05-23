@@ -28,7 +28,7 @@ export default {
             return { ...state, weather }
         },
 
-        clear(state, ) {
+        clear(state, {}) {
             return {
                 ...state,
                 loginName: null,
@@ -47,6 +47,11 @@ export default {
             const { vo } = yield call(loginService.login, payload);
             yield put({ type: 'save', payload: { data: vo } });
             router.push('/statistical');
+        },
+
+        *logout({}, { call, put }) {
+            yield call(loginService.logout);
+            yield put({ type: 'clear'});
         },
 
         *checkPath({ pathname }, { select }) {
@@ -68,7 +73,7 @@ export default {
             return history.listen(({ pathname, query }) => {
                 console.log('login pathname=' + pathname);
                 if (pathname === '/login') {
-                    dispatch({ type: 'clear' });
+                    dispatch({ type: 'logout' });
                 } else if (pathname === '/binding') {
 
                 } else {
