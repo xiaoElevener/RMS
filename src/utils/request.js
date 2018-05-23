@@ -24,7 +24,6 @@ function parseJSON(response) {
 }
 
 function checkStatus(response) {
-  console.log('checkStatus' + JSON.stringify(response));
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -36,7 +35,6 @@ function checkStatus(response) {
 }
 
 function checkSuccess(data) {
-  console.log('checkSuccess' + JSON.stringify(data));
   if (data.success) {
     return data;
   }

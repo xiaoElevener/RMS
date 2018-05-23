@@ -15,6 +15,14 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
     dataIndex: 'userName',
     key: 'userName',
     width: '20%',
+    render: (text, record) => {
+      const roles = record.roles;
+      if (roles.find(role => (role.roleCode === 'admin'))) {
+        return text + '👷';
+      } else {
+        return text;
+      }
+    }
   }, {
     title: '手机号',
     dataIndex: 'telephone',
