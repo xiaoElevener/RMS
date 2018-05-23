@@ -4,6 +4,7 @@ import { Row, Card, Col } from 'antd'
 import MessageBoard from '../messageBoard/components/MessageBoard'
 import Weather from './components/Weather'
 import RowContent from './components/RowContent'
+import Word from './components/Word'
 
 function page() {
   return (
@@ -17,6 +18,7 @@ function page() {
       <Row gutter={16}>
         <Col span={12}>
           {/* <Card bordered={false}><MessageBoard type='card' /></Card> */}
+          <Card bordered={false} style={{ backgroundColor: '#7b4032'}}><Word /></Card>
         </Col>
         <Col span={12}>
           <Card bordered={false} style={{ backgroundColor: '#8fc9fb' }}><Weather /></Card>
