@@ -11,7 +11,7 @@ function UserTable({ dispatch, data: dataSource, total, pageSize, pageNumber, lo
     key: 'loginName',
     width: '20%',
   }, {
-    title: '姓名',
+    title: '姓名(带👷图标为系统管理员)',
     dataIndex: 'userName',
     key: 'userName',
     width: '20%',

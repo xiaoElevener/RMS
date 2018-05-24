@@ -22,6 +22,12 @@ function ListSearch({ dispatch }) {
 
     const search = () => {
         dispatch({
+            type: 'dealHistory/changePageNumber',
+            payload: {
+                pageNumber: 1
+            }
+        });
+        dispatch({
             type: 'dealHistory/fetch'
         });
     }

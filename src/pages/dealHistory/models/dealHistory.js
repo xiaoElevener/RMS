@@ -10,11 +10,11 @@ export default {
         pageNumber: 1,
         startDate: null,
         endDate: null,
-        
+
     },
 
     reducers: {
-        
+
 
         save(state, { payload: { data, total } }) {
             return { ...state, data, total };
@@ -24,11 +24,15 @@ export default {
             return { ...state, pageSize, pageNumber };
         },
 
+        changePageNumber(state, { payload: { pageNumber } }) {
+            return { ...state, pageNumber };
+        },
+
         changePageSize(state, { payload: { pageSize } }) {
             return { ...state, pageSize, pageNumber: 1 };
         },
 
-        
+
         saveData(state, { payload }) {
             return { ...state, ...payload };
         }
@@ -50,7 +54,7 @@ export default {
             yield call(dealHistoryService.exportExcel, dealObjectValue(query));
         },
 
-        
+
     },
 
     subscriptions: {
